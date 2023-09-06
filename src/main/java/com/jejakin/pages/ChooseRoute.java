@@ -8,21 +8,44 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ChooseRoute {
     private WebDriver driver;
+
     public ChooseRoute() {
         this.driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
     }
+
     @FindBy(xpath = "//*[@id=\"__next\"]/div/div/div/div[2]/div[1]/div/div/div/div[1]/div[2]/span")
     WebElement clickRoute;
-    public void pointerChoose() {clickRoute.click();}
+
+    public void pointerChoose() {
+        clickRoute.click();
+    }
+
     @FindBy(xpath = "//div[normalize-space()='Bandar Udara Internasional Soekarno Hatta']")
     WebElement Keberangkatan;
-    public void pilihKeberangkatan() {Keberangkatan.click();}
+
+    public void pilihKeberangkatan() {
+        Keberangkatan.click();
+    }
+
     @FindBy(xpath = "//div[normalize-space()='Bandar Udara Internasional Juanda']")
     WebElement Kedatangan;
-    public void pilihKedatangan() {Kedatangan.click();}
+
+    public void pilihKedatangan() {
+        Kedatangan.click();
+    }
+
     @FindBy(xpath = "//button[@class='dflex mt-auto mx-auto Button_btn___hqnz Button_btnBlock__2xQWD Button_btnGreen__k7VCG Button_btnBlock__2xQWD']")
     WebElement btnAction;
-    public void tombolAction(){btnAction.click();}
 
+    public void tombolAction() {
+        btnAction.click();
+    }
+    @FindBy(xpath ="/html/body/div/div/div/div/div[1]/div/div[2]/div[2]/div/div/h3/span")
+    WebElement txtCarbon;
+    public float gettxtCarbon() {
+        String text = txtCarbon.getText();
+        float carbonValue = Float.parseFloat(text);
+        return carbonValue;
+    }
 }

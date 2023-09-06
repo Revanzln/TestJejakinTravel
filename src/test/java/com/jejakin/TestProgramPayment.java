@@ -55,7 +55,7 @@ public class TestProgramPayment {
     @And("User click pay offset")
     public void user_click_pay_offset () {
         programPayment.clickbtnPayOffset();
-        Hooks.delay(7);
+        Hooks.delay(10);
         extentTest.log(LogStatus.PASS,"User click pay offset");
     }
 

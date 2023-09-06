@@ -9,7 +9,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import javax.print.DocFlavor;
 import java.net.URLConnection;
@@ -42,12 +46,18 @@ public class TestChooseRoute {
     @And("User pilih kedatangan")
     public void user_pilih_kedatangan(){
         chooseRoute.pilihKedatangan();
-        Hooks.delay(1);
+        Hooks.delay(3);
         extentTest.log(LogStatus.PASS,"User pilih kedatangan");
     }
     @Then("User click tombol action")
     public void user_click_tombol_action() {
         chooseRoute.tombolAction();
         extentTest.log(LogStatus.PASS, "User click tombol action");
+    }
+    @And("Validasi Carbon")
+    public void validasi_carbon() {
+        chooseRoute.gettxtCarbon();
+        assertEquals(722.4, chooseRoute.gettxtCarbon(), 0.01);
+        extentTest.log(LogStatus.PASS,"Validasi Carbon");
     }
 }
